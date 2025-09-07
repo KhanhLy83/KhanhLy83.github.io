@@ -16,16 +16,15 @@
 ---
 
 ## 🚀 Dự án nổi bật
-- 🛒 [Website bán sản phẩm hữu cơ (ASP.NET Web Forms)](link_đến_repo)  
-- 📚 [Hệ thống quản lý sách (C# + SQL Server)](link_đến_repo)  
-- 🎨 [Blog tin tức giải trí (HTML, CSS, JS, PHP)](khanhlywweb.id.vn)  
+- 🛒 
+- 📚 
+- 🎨 [Trang bán hàng wordpress (HTML, CSS, JS, PHP)](https://khanhlywweb.id.vn/)  
 
 ---
 
 ## 📫 Liên hệ với mình
-- Email: `youremail@example.com`  
-- Facebook: [fb.com/yourprofile](link)  
-- LinkedIn: [linkedin.com/in/yourprofile](link)  
+- Email: `lycutevl0802004@gmail.com`  
+- Facebook: (https://www.facebook.com/klycute.04)  
 
 ---
 
