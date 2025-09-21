@@ -22,14 +22,72 @@
         <header>
             <!-- place navbar here -->
         </header>
-        <main>'
+        <main>
+            <h3>a. định nghĩa các class button</h3>
+            <div class="phan a">
            <button type="button" class=" btn btn-default">Default Button</button>
            <button class="btn btn-primary">Primary Button</button>
            <button class="btn btn-success">Success Button</button>
            <button class="btn btn-info">Info Button</button>
            <button class="btn btn-warning">Warning Button</button>
            <button class="btn btn-danger">Danger Button</button>
-           <button class="btn btn-link">Link Button</button>
+           <button class="btn btn-link">Link Button</button></div>
+           <h3>b. button với đường viền</h3>
+           <div class="phan b">
+            <button type="button" class="btn btn-outline-primary">Primary Button</button>
+            <button type="button" class="btn btn-outline-secondary">Secondary Button</button>
+            <button type="button" class="btn btn-outline-success">Success Button</button>
+            <button type="button" class="btn btn-outline-danger">Danger Button</button>
+            <button type="button" class="btn btn-outline-warning">Warning Button</button>
+            <button type="button" class="btn btn-outline-info">Info Button</button>
+            <button type="button" class="btn btn-outline-light">Light Button</button>
+            <button type="button" class="btn btn-outline-dark">Dark Button</button>
+           </div>
+           <h3>c. kích thước của button</h3>
+           <div class="phan c">
+            <button type="button" class="btn btn-primary btn-lg">Nút to</button>
+            <button type="button" class="btn btn-primary btn-sm">Nút nho</button>
+            <button type="button" class="btn btn-primary">Nút bình thường</button>
+
+           </div>
+           <h3>d. thành phần của button</h3>
+           <div class="phan d">
+            <button type="button" class="btn btn-success">Button chứa link</button>
+            <a href="#" class="btn btn-success">Button có link</a>
+            <input type="button" class="btn btn-success" value="Input button">
+            <input type="submit" class="btn btn-success"  value="Submit button" id="">
+
+           </div>
+           <h3>e. trạng thái của nút</h3>
+           <div class="phan e">
+            <button type="button" class="btn btn-primary">Nút bình thường</button>
+            <button type="button" class="btn btn-success">Nút có thể click</button>
+            <button type="button" class="btn btn-secondary" disabled>Nút không thể click</button>
+            <a href="#" class="btn btn-link disabled" tabindex="-1" aria-disabled="true">Link không thể click</a>
+
+           </div>
+           <h3>f. nút đang load</h3>
+           <div class="phan f">
+
+           <div class="container mt-3">
+            <button type="button" class="btn btn-primary">
+              <span class="spinner-border"></span>
+            </button>
+            <button type="button" class="btn btn-primary" disabled>
+              <span class="spinner-border"></span>
+              Loading...
+            </button>
+            <button type="button" class="btn btn-primary" disabled>
+              <span class="spinner-border spinner-border-sm"></span>
+              Loading...
+            </button>
+            <button type="button" class="btn btn-primary" disabled>
+              <span class="spinner-grow spinner-grow-sm"></span>
+              Loading...
+            </button>
+
+           </div> 
+           </div>
         </main>
         <footer>
             <!-- place footer here -->
