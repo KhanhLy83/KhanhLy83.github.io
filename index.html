@@ -1,468 +1,173 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Nhóm 1</title>
+
+  <!-- ✅ Liên kết thư viện Bootstrap CSS (phiên bản 5.3) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ✅ Thư viện icon Bootstrap (bi-...) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f7fa;
-    }
 
-    .hero {
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.7), rgba(78, 205, 196, 0.7)),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center;
-      background-size: cover;
-      color: white;
-      padding: 80px 0;
-      text-align: center;
-      animation: fadeIn 1s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      transition: 0.3s;
-    }
-
-    .member-card img {
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-    }
-
-    .contact-form,
-    .contact-info {
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-form:hover {
-      transform: translateY(-5px);
-    }
-
-    .contact-info img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 3px solid #ff6b6b;
-    }
-
-    .btn-submit {
-      background: linear-gradient(to right, #ff6b6b, #4ecdc4);
-      border: none;
-      padding: 10px 20px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .btn-submit:hover {
-      background: linear-gradient(to right, #4ecdc4, #ff6b6b);
-    }
-
-    footer {
-      background: linear-gradient(135deg, #2c3e50, #1a252f);
-      color: white;
-      padding: 50px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-      z-index: 0;
-    }
-
-    footer .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .social-icons a {
-      color: #ffffff;
-      font-size: 22px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.2);
-      text-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
-    }
-
-    .footer-links a {
-      color: #d1d1d1;
-      margin: 0 10px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: #ff6b6b;
-    }
-
-    .map-container {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <!-- ✅ File CSS tự viết -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Nhóm 1 Tạo Blog</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
-          <li class="nav-item"><a class="nav-link" href="#posts">Bài viết</a></li>
-          <li class="nav-item"><a class="nav-link" href="#member">Thành viên</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
-        </ul>
-      </div>
+
+<!-- 🌟 NAVBAR - Thanh điều hướng -->
+<!-- 
+  .navbar: kích hoạt thành phần thanh điều hướng của Bootstrap
+  .navbar-expand-lg: menu chỉ thu gọn (collapse) khi màn hình nhỏ hơn kích thước "large" (≥992px thì hiển thị đầy đủ)
+  .navbar-dark: chữ và icon màu sáng (thường dùng cho nền tối)
+  .bg-dark: nền màu tối (đen)
+  .shadow-sm: tạo bóng nhẹ bên dưới navbar
+  .fixed-top: giữ thanh navbar cố định ở đầu trang khi cuộn
+-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+  <div class="container"> <!-- .container: căn giữa nội dung và giới hạn độ rộng -->
+
+    <!-- .navbar-brand: tên/logo của website -->
+    <a class="navbar-brand fw-bold" href="index.html">Nhóm 1 Blog</a>
+
+    <!-- Nút bật/tắt menu khi ở chế độ mobile -->
+    <!-- .navbar-toggler: nút mở menu trên màn hình nhỏ -->
+    <!-- data-bs-toggle="collapse": dùng JS của Bootstrap để ẩn/hiện phần menu -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> <!-- Icon 3 gạch -->
+    </button>
+
+    <!-- Khu vực chứa menu -->
+    <!-- .collapse .navbar-collapse: menu có thể thu gọn -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- .navbar-nav: danh sách item trong navbar -->
+      <!-- .ms-auto: margin-start tự động -> đẩy menu sang phải -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="post.html">Bài viết</a></li>
+        <li class="nav-item"><a class="nav-link" href="member.html">Thành viên</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+      </ul>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="display-4 fw-bold">Chào mừng đến với Blog Nhóm 1</h1>
-      <p class="lead">Nơi chia sẻ kiến thức, kinh nghiệm và dự án học tập của chúng tôi</p>
-      <a href="#posts" class="btn btn-light btn-lg mt-3">Khám phá bài viết</a>
-    </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- Main Content -->
-  <div class="container my-5" id="posts">
-    <!-- ✅ Breadcrumb thêm vào -->
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb bg-light p-2 rounded">
-        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Bài viết</li>
-      </ol>
-    </nav>
+<!-- 🌈 HERO SECTION (Trang chào mừng) -->
+<!-- 
+  d-flex: sử dụng Flexbox
+  align-items-center: căn giữa theo chiều dọc
+  text-white: chữ trắng
+  text-center: căn giữa chữ
+-->
+<header class="hero-home d-flex align-items-center text-white text-center">
+  <div class="container">
+    <h1 class="display-3 fw-bold mb-3">Chào mừng đến với Blog Nhóm 1</h1>
+    <p class="lead mb-4">Nơi chia sẻ kiến thức, kinh nghiệm & dự án học tập của chúng tôi</p>
+    <!-- .btn .btn-lg: nút lớn -->
+    <!-- .px-4: padding ngang -->
+    <a href="post.html" class="btn btn-gradient btn-lg px-4">Khám phá Bài Viết</a>
+  </div>
+</header>
 
-    <div class="row">
-      <!-- Blog Posts -->
-      <div class="col-lg-8">
-        <h2 class="fw-bold mb-4">Danh sách bài viết</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <!-- Bài viết 1 -->
-          <div class="col">
-            <div class="card shadow-sm h-100">
-              <img src="https://via.placeholder.com/600x300?text=Team+Members" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Giới Thiệu Thành Viên</h5>
-                <p class="card-text">Chúng tôi gồm 4 thành viên với những vai trò khác nhau...</p>
-                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#post1Modal">Đọc
-                  thêm</a>
-                <!-- ✅ Badge thêm vào -->
-                <div class="mt-2">
-                  <span class="badge bg-primary">#Team</span> 
-                  <span class="badge bg-info text-dark">#GiớiThiệu</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bài viết 2 -->
-          <div class="col">
-            <div class="card shadow-sm h-100">
-              <img src="https://via.placeholder.com/600x300?text=Working+Process" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Quá Trình Làm Việc</h5>
-                <p class="card-text">Cùng nhau xây dựng, thảo luận và hoàn thiện từng chi tiết...</p>
-                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#post2Modal">Đọc
-                  thêm</a>
-                <!-- ✅ Badge thêm vào -->
-                <div class="mt-2">
-                  <span class="badge bg-success">#Teamwork</span>
-                  <span class="badge bg-warning text-dark">#DựÁn</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bài viết 3 -->
-          <div class="col">
-            <div class="card shadow-sm h-100">
-              <img src="https://via.placeholder.com/600x300?text=Blog+Meaning" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Ý Nghĩa Của Blog</h5>
-                <p class="card-text">Blog là nơi lưu giữ kiến thức, chia sẻ kinh nghiệm học tập...</p>
-                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#post3Modal">Đọc
-                  thêm</a>
-                <!-- ✅ Badge thêm vào -->
-                <div class="mt-2">
-                  <span class="badge bg-danger">#Blog</span>
-                  <span class="badge bg-secondary">#HọcTập</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bài viết 4 -->
-          <div class="col">
-            <div class="card shadow-sm h-100">
-              <img src="https://via.placeholder.com/600x300?text=Future+Plan" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Định Hướng Tương Lai</h5>
-                <p class="card-text">Trong tương lai, nhóm hướng tới mở rộng nội dung...</p>
-                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#post4Modal">Đọc
-                  thêm</a>
-                <!-- ✅ Badge thêm vào -->
-                <div class="mt-2">
-                  <span class="badge bg-dark">#Future</span>
-                  <span class="badge bg-info text-dark">#ĐịnhHướng</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- Modal Bài viết 1 -->
-        <div class="modal fade" id="post1Modal" tabindex="-1" aria-labelledby="post1ModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="post1ModalLabel">Giới Thiệu Thành Viên</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <p>Nhóm 1 gồm 4 thành viên với các vai trò rõ ràng:</p>
-                <ul>
-                  <li><b>Hoàng Việt Hùng</b>: Lập trình viên – chịu trách nhiệm code chính.</li>
-                  <li><b>Nguyễn Khánh Ly</b>: Thiết kế giao diện – xây dựng UI/UX và bố cục.</li>
-                  <li><b>Đinh Tuấn Anh</b>: Viết nội dung – soạn thảo và biên tập bài viết.</li>
-                  <li><b>Nguyễn Đức Hiệp</b>: Quản lý dự án – phân chia công việc và theo dõi tiến độ.</li>
-                </ul>
-                <p>Sự phối hợp này giúp nhóm vừa học hỏi, vừa hoàn thành dự án hiệu quả.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal Bài viết 2 -->
-        <div class="modal fade" id="post2Modal" tabindex="-1" aria-labelledby="post2ModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="post2ModalLabel">Quá Trình Làm Việc</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <p>Quá trình làm việc của nhóm được tổ chức theo các bước:</p>
-                <ol>
-                  <li>Họp nhóm, phân tích yêu cầu và đặt mục tiêu.</li>
-                  <li>Phân chia công việc rõ ràng cho từng thành viên.</li>
-                  <li>Cùng nhau trao đổi thường xuyên qua chat và video call.</li>
-                  <li>Review sản phẩm định kỳ, sửa lỗi và cải tiến.</li>
-                </ol>
-                <p>Điều quan trọng nhất là <b>sự phối hợp ăn ý</b> giữa các thành viên, từ đó mang lại hiệu quả cao.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal Bài viết 3 -->
-        <div class="modal fade" id="post3Modal" tabindex="-1" aria-labelledby="post3ModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="post3ModalLabel">Ý Nghĩa Của Blog</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <p>Blog không chỉ là nơi lưu trữ kiến thức, mà còn là:</p>
-                <ul>
-                  <li>Một kênh <b>chia sẻ kinh nghiệm</b> với cộng đồng.</li>
-                  <li>Cách để <b>rèn luyện kỹ năng viết và trình bày</b>.</li>
-                  <li>Nơi lưu giữ <b>thành quả học tập</b> của nhóm.</li>
-                  <li>Tạo động lực cho các dự án tiếp theo.</li>
-                </ul>
-                <p>Thông qua blog, nhóm hy vọng truyền cảm hứng cho các bạn khác trong việc học tập và phát triển bản
-                  thân.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal Bài viết 4 -->
-        <div class="modal fade" id="post4Modal" tabindex="-1" aria-labelledby="post4ModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="post4ModalLabel">Định Hướng Tương Lai</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <p>Trong tương lai, nhóm định hướng:</p>
-                <ul>
-                  <li>Mở rộng blog với nhiều chủ đề phong phú hơn.</li>
-                  <li>Tích hợp tính năng bình luận để giao lưu với người đọc.</li>
-                  <li>Thêm chuyên mục học tập theo từng môn học.</li>
-                  <li>Phát triển thành website chia sẻ kiến thức cho sinh viên.</li>
-                </ul>
-                <p>Mục tiêu dài hạn là biến blog thành <b>nguồn tài nguyên hữu ích</b> cho cộng đồng học tập.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <!-- ✅ Pagination thêm vào -->
-        <nav aria-label="Page navigation example" class="mt-4">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link">Trước</a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Sau</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <!-- Sidebar -->
-      <div class="col-lg-4" id="member">
-        <h3 class="mb-3">Thông tin nhóm</h3>
-        <div class="d-flex flex-column gap-3">
-          <div class="member-card d-flex align-items-center bg-light p-3 rounded shadow-sm">
-            <img src="https://via.placeholder.com/80" alt="">
-            <div class="ms-3">
-              <h6 class="mb-0">Thành viên 1</h6>
-              <small>Lập trình viên</small>
-            </div>
-          </div>
-          <div class="member-card d-flex align-items-center bg-light p-3 rounded shadow-sm">
-            <img src="https://via.placeholder.com/80" alt="">
-            <div class="ms-3">
-              <h6 class="mb-0">Thành viên 2</h6>
-              <small>Thiết kế giao diện</small>
-            </div>
-          </div>
-          <div class="member-card d-flex align-items-center bg-light p-3 rounded shadow-sm">
-            <img src="https://via.placeholder.com/80" alt="">
-            <div class="ms-3">
-              <h6 class="mb-0">Thành viên 3</h6>
-              <small>Viết nội dung</small>
-            </div>
-          </div>
-          <div class="member-card d-flex align-items-center bg-light p-3 rounded shadow-sm">
-            <img src="https://via.placeholder.com/80" alt="">
-            <div class="ms-3">
-              <h6 class="mb-0">Thành viên 4</h6>
-              <small>Quản lý dự án</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- 📰 BÀI VIẾT NỔI BẬT -->
+<section class="container py-5">
+  <!-- py-5: padding dọc lớn -->
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">📰 Bài viết nổi bật</h2>
+    <p class="text-muted">Tổng hợp các bài chia sẻ mới nhất từ nhóm</p>
   </div>
 
-  <!-- Contact Section -->
-  <section class="hero" id="contact">
-    <div class="container">
-      <h1 class="display-4">Liên Hệ Với Tôi</h1>
-      <p class="lead">Hãy gửi tin nhắn hoặc liên hệ trực tiếp để trao đổi ý tưởng!</p>
-    </div>
-  </section>
-
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <!-- Contact Form -->
-        <div class="col-lg-6 mb-4">
-          <div class="contact-form">
-            <h3>Gửi Tin Nhắn</h3>
-            <form action="#" method="POST">
-              <div class="mb-3">
-                <label for="name" class="form-label">Họ và Tên</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên của bạn" required>
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" required>
-              </div>
-              <div class="mb-3">
-                <label for="message" class="form-label">Tin Nhắn</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Nhập tin nhắn của bạn"
-                  required></textarea>
-              </div>
-              <button type="submit" class="btn btn-submit">Gửi Tin Nhắn</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="col-lg-6 mb-4">
-          <div class="contact-info">
-            <img src="img/giang.jpg" alt="Profile Image" class="img-fluid">
-            <h3>TEAMONE</h3>
-            <p>TEAMONE Chào mừng bạn đến với blog cá nhân của TeamOne! Liên hệ để chia sẻ ý tưởng nhé.</p>
-            <p><i class="bi bi-envelope"></i> Email: teamoneonly@gmail.com</p>
-            <p><i class="bi bi-phone"></i> Điện thoại: +84 123 456 789</p>
-            <p><i class="bi bi-geo-alt"></i> Địa chỉ: Tiên Sơn, Tiên Cát, Việt Trì, Phú Thọ</p>
-          </div>
-          <div class="map-container mt-4">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3716.9511327672294!2d105.39706327353349!3d21.31294717796044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31348d4ebf6c9a5b%3A0xabb9e949be7982d0!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBDw7RuZyBOZ2hp4buHcCBWaeG7h3QgVHLDrA!5e0!3m2!1svi!2s!4v1757231114679!5m2!1svi!2s"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+  <!-- .row: chia hàng -->
+  <!-- .g-4: khoảng cách giữa các cột -->
+  <div class="row g-4">
+    
+    <!-- Mỗi bài viết là một .col (cột) -->
+    <!-- col-md-6: chiếm 6/12 cột khi màn hình ≥768px -->
+    <!-- col-lg-3: chiếm 3/12 cột khi màn hình ≥992px -->
+    <div class="col-md-6 col-lg-3">
+      <!-- .card: khung chứa nội dung kiểu thẻ -->
+      <!-- .h-100: chiều cao bằng nhau -->
+      <!-- .shadow-sm: đổ bóng nhẹ -->
+      <div class="card post-card h-100 shadow-sm">
+        <img src="/image/team.jpeg" class="card-img-top" alt="Team">
+        <div class="card-body">
+          <h5 class="card-title">Giới Thiệu Thành Viên</h5>
+          <p class="card-text">Tìm hiểu về 4 thành viên và vai trò trong nhóm...</p>
+          <!-- .stretched-link: làm cho toàn bộ thẻ <div> trở thành vùng nhấp -->
+          <a href="post.html#post1" class="stretched-link text-gradient fw-semibold">Đọc thêm</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="text-center">
-    <div class="container">
-      <p class="mb-1">&copy; 2025 Nhóm 1 Blog. All rights reserved.</p>
-      <div>
-        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
+    <!-- Lặp lại cấu trúc tương tự cho các bài viết khác -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card post-card h-100 shadow-sm">
+        <img src="image/work.jpeg" class="card-img-top" alt="Work">
+        <div class="card-body">
+          <h5 class="card-title">Quá Trình Làm Việc</h5>
+          <p class="card-text">Quy trình hợp tác và hoàn thiện từng chi tiết dự án...</p>
+          <a href="post.html#post2" class="stretched-link text-gradient fw-semibold">Đọc thêm</a>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="col-md-6 col-lg-3">
+      <div class="card post-card h-100 shadow-sm">
+        <img src="/image/blog.jpeg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Ý Nghĩa Của Blog</h5>
+          <p class="card-text">Blog không chỉ là nơi lưu trữ kiến thức, mà còn truyền cảm hứng...</p>
+          <a href="post.html#post3" class="stretched-link text-gradient fw-semibold">Đọc thêm</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card post-card h-100 shadow-sm">
+        <img src="/image/future.jpeg" class="card-img-top" alt="Future">
+        <div class="card-body">
+          <h5 class="card-title">Định Hướng Tương Lai</h5>
+          <p class="card-text">Tầm nhìn và mục tiêu phát triển Blog của nhóm trong tương lai...</p>
+          <a href="post.html#post4" class="stretched-link text-gradient fw-semibold">Đọc thêm</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🌟 PHẦN GIỚI THIỆU NHÓM -->
+<section class="bg-light py-5">
+  <!-- bg-light: nền màu sáng xám nhạt -->
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">💡 Về Nhóm 1</h2>
+    <p class="lead text-muted mx-auto" style="max-width:700px">
+      Nhóm 1 là tập hợp những bạn trẻ đam mê lập trình, thiết kế và sáng tạo nội dung...
+    </p>
+    <a href="member.html" class="btn btn-gradient mt-3 px-4">Gặp gỡ các thành viên</a>
+  </div>
+</section>
+
+<!-- 🔗 FOOTER -->
+<footer class="bg-dark text-white text-center py-4">
+  <!-- bg-dark: nền tối -->
+  <!-- text-white: chữ trắng -->
+  <!-- text-center: căn giữa -->
+  <!-- py-4: padding dọc -->
+  <div class="container">
+    <p class="mb-1">&copy; 2025 Nhóm 1 Blog. All rights reserved.</p>
+    <div>
+      <!-- Icon mạng xã hội (dùng Bootstrap Icons) -->
+      <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ✅ Bootstrap JS (bundle gồm cả Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
